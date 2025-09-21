@@ -4,3 +4,7 @@ Top nav bar padding
 Borders for buttons
 Background consistency?
 
+    /*add new tab link button area? */
+custom pop up for go to page
+photos page
+blog?

@@ -13,6 +13,7 @@
     <meta name="description" content="Danny's Portfolio: projects, skills, about me">
     <meta name="color-scheme" content="light dark">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     :root { --bg: #0b0d16; --page-bg: #070709; --text: #e6e8ee; --muted: #a2aabc; --accent: #6ea8fe; --card-bg: #11131a; --max-width: 1100px; --gap: 18px; --radius: 16px; --light-bg: #f7faff; --dark-bg: #0b0d16; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
@@ -42,9 +43,22 @@
     .contact { background: #121428; }
     .navButtons {  margin-right: 12px; border-radius: 10px; border: 1px solid rgba(230,232,238,.12); background: rgba(110,168,254,.10); color: #e6e8ee; padding: 3px 5px; font-weight: 600; cursor: pointer; }
     .navButtons:hover {  background: rgba(110,168,254,.20); }
-    .menu-toggle { display: none; margin-left: 12px; border-radius: 10px; border: 1px solid rgba(230,232,238,.12); background: rgba(110,168,254,.10); color: #e6e8ee; padding: 6px 10px; font-weight: 600; cursor: pointer; }
+    .menu-toggle { display: none; margin-left: 12px; border-radius: 10px; border: 5px solid rgba(230,232,238,.12); background: rgba(110,168,254,.10); color: #e6e8ee; padding: 6px 10px; font-weight: 600; cursor: pointer; }
     .menu-toggle:hover { background: rgba(110,168,254,.20); }
-
+    .fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    }
+    .fa:hover { background-color: #0077A0;  }
+    .fa-linkedin { color: white; background-color: #0077B5; border-radius: 25px; padding: 9px; border: 1px solid rgba(230,232,238,.12); }
+    .fa-linkedin:hover { color: white; border: 1px solid rgba(230,232,238,.12); }
+    .fa-github { background-color: #0b1226; border-radius: 25px; padding: 9px; color: white; border: 1px solid rgba(230,232,238,.12); }
+    .fa-github:hover { color: black; background-color: white; border: 1px solid rgba(230,232,238,.12); }
+    .fa-envelope { background-color: #2563eb; border-radius: 25px; padding: 9px; border: 1px solid rgba(230,232,238,.12); color: white; } 
+    .fa-envelope:hover { color: #070709; background-color: #6ea8fe; border: 1px solid rgba(230,232,238,.12); }
 
      html { scroll-behavior: smooth; }
      body { margin: 0; font-family: "Inter", system-ui, sans-serif; line-height: 1.6; background: black; color: #e6e8ee; }     
@@ -72,15 +86,24 @@
             border-bottom: 1px solid rgba(230,232,238,.12); 
             box-shadow: 0 10px 30px rgba(0,0,0,.35);
             backdrop-filter: blur(8px); 
+            
             -webkit-backdrop-filter: blur(8px);
             text-align: center;
             padding-right: 26px;
         }
+        .menu-toggle { 
+                display: inline-flex;
+                align-items: center; 
+                gap: 8px; 
+                padding: 5px 10px; 
+                border: 1px solid rgba(230,232,238,.12);
+                background: rgba(110,168,254,.10);
+                border-radius: 10px;
+                color: #e6e8ee;
+            }
         html[data-theme="light"] .navButtons { border-color: transparent; border-width: 1px; }
         header nav ul.open { display: flex; background-color: rgba(17,17,17,1); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-        .menu-toggle { display: inline-flex; align-items: center; gap: 8px; padding: 5px; border-width: 1px; border-color: rgba(0,0,0,.10); }
         header nav a.navButtons { display: block; width: 100%; }
-       /*border: rgba(0,0,0,.10) */
         html[data-theme="light"] .theme-btn { border-color: rgba(0,0,0,.10); border-width: 1px; }
         html[data-theme="light"] .menu-toggle { border-color: rgba(0,0,0,.10); border-width: 1px; color: black;}
 
@@ -110,9 +133,7 @@
     html[data-theme="light"] body { background: var(--light-bg);}
     html[data-theme="dark"] body { background: var(--dark-bg);}
     html[data-theme="light"] .subtitle { color: black;}
-    html[data-them="light"] .theme-btn { border: 3px; border-color: #070709; }
-    html[data-them="light"] .menu-toggle { border: 1px; border-color: #070709; color: black; }
-
+    
  </style>
 </head>
 <body>
@@ -153,7 +174,7 @@
         <article class="card">
             <header class="card-header">
                 <h3>Password Generator & Text Encryptor</h3>
-                <a class="chip" href="https://github.com/fiberly/Encrypt-Text-and-Password-Generator" target="_blank" rel="noopener">View Code ↗</a>
+                <button class="chip" data-link="https://github.com/fiberly/Encrypt-Text-and-Password-Generator">View Code ↗</button>
             </header>
             <p>Generate Strong passwords and encrypt text.</p>
             <p><strong>Stack:</strong> Python</p>
@@ -163,7 +184,7 @@
         <article class="card">
             <header class="card-header">
                 <h3>Asset, Debt and Budget Tracker</h3>
-                <a class="chip" href="https://github.com/fiberly/asset-and-debt-tracker" target="_blank" rel="noopener">View Code ↗</a>
+                <button class="chip" data-link="https://github.com/fiberly/asset-and-debt-tracker">View Code ↗</button>
             </header>
             <p>Track any assets and or debts that  you may have.</p>
             <p><strong>Stack:</strong> Python</p>
@@ -172,7 +193,7 @@
         <article class="card">
             <header class="card-header">
                 <h3>Personal Journal</h3>
-                <a class="chip" href="https://github.com/fiberly/Personal-Journal" target="_blank" rel="noopener">View Code ↗</a>
+                <button class="chip" data-link="https://github.com/fiberly/Personal-Journal">View Code ↗</button>
             </header>
             <p>Personal Journal with a to do list.</p>
             <p><strong>Stack:</strong> HTML, CSS, JS, PHP, MySQL</p>
@@ -181,7 +202,7 @@
         <article class="card">
             <header class="card-header">
                 <h3>To Do applicaton</h3>
-                <a class="chip" href="https://github.com/fiberly/To-Do-App" target="_blank" rel="noopener">View Code ↗</a>
+                <button class="chip" data-link="https://github.com/fiberly/To-Do-App"">View Code ↗</button>
             </header>
             <p>Simple To Do application</p>
             <p><strong>Stack:</strong> Swift</p>
@@ -190,7 +211,7 @@
         <article class="card">
             <header class="card-header">
                 <h3>Tinder Clone</h3>
-                <a class="chip" href="https://github.com/fiberly/Tinder-Clone" target="_blank" rel="noopener">View Code ↗</a>
+                <button class="chip" data-link="https://github.com/fiberly/Tinder-Clone">View Code ↗</button>
             </header>
             <p>Simple Tinder clone application with swipe right or left functionality.</p>
             <p><strong>Stack:</strong> Swift</p>
@@ -199,7 +220,7 @@
         <article class="card">
             <header class="card-header">
                 <h3>Flappy Bird Clone</h3>
-                <a class="chip" href="https://github.com/fiberly/FlappyBirdClone" target="_blank" rel="noopener">View Code ↗</a>
+                <button class="chip" data-link="https://github.com/fiberly/FlappyBirdClone">View Code ↗</button>
             </header>
             <p>Flappy bird clone application.</p>
             <p><strong>Stack:</strong> Swift</p>
@@ -211,7 +232,9 @@
 <section id="contact" class="section contact">
     <div class="container">
         <h1>Contact Me At</h1>
-        <p>hebarton12@gmail.com</p>
+        <button onclick="linkedInButton" class="fa fa-linkedin"></button>
+        <button onclick="githubButton" class="fa fa-github"></button>
+        <button onclick="mailButton" class="fa fa-envelope"></button>
     </div>
 </section>
 
@@ -222,6 +245,53 @@
 </footer>
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    
+    const allChipButtons = document.querySelectorAll('.chip[data-link]')
+    allChipButtons.forEach(button => {
+        button.addEventListener('click', function() {
+        const getLink = this.dataset.link;
+        const userConfirm = window.confirm("Are you sure you want to leave the page and go to Github?");
+            if (userConfirm) {
+                window.location.href = getLink;
+            }
+        });
+    
+    });
+    
+    
+    const linkedInButton = document.querySelector('.fa-linkedin');
+    if (linkedInButton) { 
+        linkedInButton.addEventListener('click', function() {
+        const userConfirm = window.confirm("Are you sure you want to leave the page and go to Linkedin?");
+
+        if (userConfirm) {
+            window.location.href = "https://www.linkedin.com/in/daniel-barton-a402061ba";
+        
+        }
+    });
+
+    const githubButton = document.querySelector('.fa-github');
+    if (githubButton) { 
+        githubButton.addEventListener('click', function() {
+        const userConfirm = window.confirm("Are you sure you want to leave the page and to go to Github")
+
+        if (userConfirm) {
+            window.location.href = "https://github.com/fiberly";
+        }
+    });
+    }
+    const emailButton = document.querySelector('.fa-envelope');
+    if (emailButton) { 
+        emailButton.addEventListener('click', function() {
+        const userConfirm = window.confirm("Are you sure you want to leave the page and open an email client?")
+
+        if (userConfirm) {
+            window.location.href = "mailto:hebarton12@gmail.com";
+        }
+    });
+    }
+}
+
     // Theme toggle (light/dark) with persistence
     (function(){
         const root = document.documentElement;
