@@ -1,0 +1,6 @@
+TODO
+
+Top nav bar padding
+Borders for buttons
+Background consistency?
+

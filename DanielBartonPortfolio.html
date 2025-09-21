@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico">
+    <meta property="og:title" content="Daniel's • Portfolio">
+    <meta property="og:description" content="Projects, notes, and contact.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:image" content="https://yourdomain.com/og-image.png">
+    <title>Daniel's Portfolio</title>
+    <meta name="description" content="Danny's Portfolio: projects, skills, about me">
+    <meta name="color-scheme" content="light dark">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+    :root { --bg: #0b0d16; --page-bg: #070709; --text: #e6e8ee; --muted: #a2aabc; --accent: #6ea8fe; --card-bg: #11131a; --max-width: 1100px; --gap: 18px; --radius: 16px; --light-bg: #f7faff; --dark-bg: #0b0d16; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .section { padding: 56px 0; }
+    .section h2 { margin-bottom: .75rem; }
+    .section p + p { margin-top: .25rem; }
+    .subtitle { color: #a2aabc; max-width: 720px; margin: 0 0 1.5rem; font-size: 1.1rem; }
+    .beginning { text-align: center; padding: 100px 20px 60px; background: radial-gradient(1000px 400px at 50% -20%, rgba(110,168,254,.15), transparent 60%); }
+    .beginning h1 { font-size: clamp(32px, 6vw, 64px); font-weight: 800; margin-bottom: 0.5rem; }
+    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    @media (max-width: 980px){ .card-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 620px) { .card-grid { grid-template-columns: 1fr; } }
+    .card { background: #11131a; border: 1px solid rgba(230,232,238,.12); border-radius: 16px; padding: 18px; box-shadow: 0 10px 30px rgba(0,0,0,.35); transition: transform 0.15s ease, box-shadow 0.15s ease; margin: 25px; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(0,0,0,.45); border-color: red; }
+    .card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; background: transparent; box-shadow: none; }
+    .card h3 { margin: 0; font-size: 1.05rem; }
+    .card p { margin: .2rem 0; color: #a2aabc; }
+    .chip { display: inline-block; border-radius: 999px; padding: 4px 10px; border: 1px solid rgba(230,232,238,.12); font-size: .78rem; color: #a2aabc; text-decoration: none; background: rgba(110,168,254,.1); color: #6ea8fe; font-weight: 600; }
+    .chip:hover { background: rgba(110, 168, 254, .2); }
+    .site-header { position: sticky; top: 0; z-index: 1000; background: rgba(17, 17, 17, 0.75); box-shadow: 0 2px 6px rgba(0,0,0,.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); } 
+    .site-header nav { max-width: var(--max-width); margin: 0 auto; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; }
+    .theme-btn { margin-right: 12px; border-radius: 10px; border: 1px solid rgba(230,232,238,.12); background: rgba(110,168,254,.10); color: #e6e8ee; padding: 6px 10px; font-weight: 600; cursor: pointer; }
+    .theme-btn:hover { background: rgba(110,168,254,.20); }
+    .home { background: #0f1730; }
+    .about { background: #081228; }
+    .projects { background:  #0b0d16; }
+    .contact { background: #121428; }
+    .navButtons {  margin-right: 12px; border-radius: 10px; border: 1px solid rgba(230,232,238,.12); background: rgba(110,168,254,.10); color: #e6e8ee; padding: 3px 5px; font-weight: 600; cursor: pointer; }
+    .navButtons:hover {  background: rgba(110,168,254,.20); }
+    .menu-toggle { display: none; margin-left: 12px; border-radius: 10px; border: 1px solid rgba(230,232,238,.12); background: rgba(110,168,254,.10); color: #e6e8ee; padding: 6px 10px; font-weight: 600; cursor: pointer; }
+    .menu-toggle:hover { background: rgba(110,168,254,.20); }
+
+
+     html { scroll-behavior: smooth; }
+     body { margin: 0; font-family: "Inter", system-ui, sans-serif; line-height: 1.6; background: black; color: #e6e8ee; }     
+     header nav { position: relative; }
+     header nav ul { list-style: none; display: flex; gap: 1rem; padding: 0; margin: 0; background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+     header nav a { color: white; text-decoration: none; font-weight: 600; }
+     header nav a:hover { color: #6ea8fe; text-decoration: none; }
+     header nav { display: flex; align-items: center; justify-content: space-between; }
+     h1, h2, h3 { margin: 0 0 .5rem; line-height: 1.2; }
+     nav { padding: 2px; }
+     footer { background: #0b1226; }
+     main { padding-top: 1px; }
+     @media (max-width: 720px) {
+        header nav ul { 
+            display: none; 
+            position: absolute; 
+            top: 100%; 
+            left: 0; 
+            right: 0; 
+            padding: 10px 16px 14px; 
+            margin: 0;
+            flex-direction: column; 
+            gap: 8px; 
+            background: rgba(17,17,17,0.80); 
+            border-bottom: 1px solid rgba(230,232,238,.12); 
+            box-shadow: 0 10px 30px rgba(0,0,0,.35);
+            backdrop-filter: blur(8px); 
+            -webkit-backdrop-filter: blur(8px);
+            text-align: center;
+            padding-right: 26px;
+        }
+        html[data-theme="light"] .navButtons { border-color: transparent; border-width: 1px; }
+        header nav ul.open { display: flex; background-color: rgba(17,17,17,1); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+        .menu-toggle { display: inline-flex; align-items: center; gap: 8px; padding: 5px; border-width: 1px; border-color: rgba(0,0,0,.10); }
+        header nav a.navButtons { display: block; width: 100%; }
+       /*border: rgba(0,0,0,.10) */
+        html[data-theme="light"] .theme-btn { border-color: rgba(0,0,0,.10); border-width: 1px; }
+        html[data-theme="light"] .menu-toggle { border-color: rgba(0,0,0,.10); border-width: 1px; color: black;}
+
+     }
+
+    
+    html[data-theme="light"] body { background: #f7faff; color: #0b1120; }
+    html[data-theme="light"] .site-header { background: rgba(255,255,255,0.75); box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+    html[data-theme="light"] header nav a { color: #0b1120; }
+    html[data-theme="light"] header nav a:hover { color: #2563eb; }
+    html[data-theme="light"] .home { background: #eaf2ff;}
+    html[data-theme="light"] .about { background: #eef4ff; }
+    html[data-theme="light"] .projects { background: #f5f8ff; }
+    html[data-theme="light"] .contact { background: #e7efff; }
+    html[data-theme="light"] .card { background: #ffffff; border-color: rgba(0,0,0,.10); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+    html[data-theme="light"] .card:hover { border-color: blue; }
+    html[data-theme="light"] .card p { color: #44506b; }
+    html[data-theme="light"] .chip { background: rgba(37, 99, 235, .10); color: #0b1120; border-color: rgba(0,0,0,.10); }
+    html[data-theme="light"] .chip:hover { background-color: rgba(110,168,254,.20); }
+    html[data-theme="light"] footer { background: #eaf2ff !important; color: #0b1120 !important; }
+    html[data-theme="light"] header nav ul { background: transparent; border-bottom-color: rgba(255,255,255,.5); backdrop-filter: none; -webkit-backdrop-filter: none; }
+    html[data-theme="light"] header nav ul.open { background-color: rgba(255, 255, 255, 1); }
+    html[data-theme="light"] nav { color: black; }
+    html[data-theme="light"] .theme-btn { border-color: rgba(0,0,0,.10); border-width: 1px; }
+    html[data-theme="light"] .navButtons { background: rgba(110,168,254,.08); color: #0b1120; border-color: rgba(0,0,0,.10); }
+    html[data-theme="light"] .navButtons:hover { background: rgba(0,0,0,0.04); color: #2563eb; text-decoration: none; }
+    html[data-theme="light"] body { background: var(--light-bg);}
+    html[data-theme="dark"] body { background: var(--dark-bg);}
+    html[data-theme="light"] .subtitle { color: black;}
+    html[data-them="light"] .theme-btn { border: 3px; border-color: #070709; }
+    html[data-them="light"] .menu-toggle { border: 1px; border-color: #070709; color: black; }
+
+ </style>
+</head>
+<body>
+
+<header class="site-header">
+    <nav>
+        <button id="nav-toggle" class="menu-toggle" aria-label="Toggle navigation" aria-controls="primary-nav" aria-expanded="false">☰ Menu</button>
+        <ul id="primary-nav">
+            <li><a class="navButtons" href="#beginning">Home</a></li>
+            <li><a class="navButtons" href="#about">About Me</a></li>          
+            <li><a class="navButtons" href="#projects">Projects</a></li>
+            <li><a class="navButtons" href="#contact">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle light/dark">🌗</button>
+    </nav>
+</header>
+<main>
+<section id="beginning" class="section home">
+    <div class="container">
+        <h1>Daniel's Portfolio Webpage</h1>
+        <p class="subtitle">Hey, welcome to my webpage. Things you will find here: projects I have built, skills I have and information about me.</p>
+    </div>
+</section>
+
+<section id="about" class="section about">
+    <div class="container">
+        <h1>About Me</h1>
+        <p>Howdy, this is my web page and or portfolio. On this webpage you will find my projects and a bit about me. I have experience in a few different programming languages. The programming languages include HTML, CSS, JavaScript, PHP, SQL, Swift, Python, etc. Also, I have experience with networks, operating systems, etc. Also, have obtained an Associates Degree, majoring in Cyber Security recently. Currently, I am learning Penetration Testing and Python programming.</p>
+        <h3>Skills: </h3>
+        <p>Programming, Networks, Operating Systems, etc. </p>
+    </div>
+</section>
+
+<section id="projects" class="section projects">
+    <div class="container">
+        <h2>Projects</h2>
+        <div class="card-grid">
+        <article class="card">
+            <header class="card-header">
+                <h3>Password Generator & Text Encryptor</h3>
+                <a class="chip" href="https://github.com/fiberly/Encrypt-Text-and-Password-Generator" target="_blank" rel="noopener">View Code ↗</a>
+            </header>
+            <p>Generate Strong passwords and encrypt text.</p>
+            <p><strong>Stack:</strong> Python</p>
+        </article>
+
+    
+        <article class="card">
+            <header class="card-header">
+                <h3>Asset, Debt and Budget Tracker</h3>
+                <a class="chip" href="https://github.com/fiberly/asset-and-debt-tracker" target="_blank" rel="noopener">View Code ↗</a>
+            </header>
+            <p>Track any assets and or debts that  you may have.</p>
+            <p><strong>Stack:</strong> Python</p>
+        </article>
+
+        <article class="card">
+            <header class="card-header">
+                <h3>Personal Journal</h3>
+                <a class="chip" href="https://github.com/fiberly/Personal-Journal" target="_blank" rel="noopener">View Code ↗</a>
+            </header>
+            <p>Personal Journal with a to do list.</p>
+            <p><strong>Stack:</strong> HTML, CSS, JS, PHP, MySQL</p>
+        </article>
+
+        <article class="card">
+            <header class="card-header">
+                <h3>To Do applicaton</h3>
+                <a class="chip" href="https://github.com/fiberly/To-Do-App" target="_blank" rel="noopener">View Code ↗</a>
+            </header>
+            <p>Simple To Do application</p>
+            <p><strong>Stack:</strong> Swift</p>
+        </article>
+
+        <article class="card">
+            <header class="card-header">
+                <h3>Tinder Clone</h3>
+                <a class="chip" href="https://github.com/fiberly/Tinder-Clone" target="_blank" rel="noopener">View Code ↗</a>
+            </header>
+            <p>Simple Tinder clone application with swipe right or left functionality.</p>
+            <p><strong>Stack:</strong> Swift</p>
+        </article>
+
+        <article class="card">
+            <header class="card-header">
+                <h3>Flappy Bird Clone</h3>
+                <a class="chip" href="https://github.com/fiberly/FlappyBirdClone" target="_blank" rel="noopener">View Code ↗</a>
+            </header>
+            <p>Flappy bird clone application.</p>
+            <p><strong>Stack:</strong> Swift</p>
+        </article>
+    </div>
+</div>
+</section>
+
+<section id="contact" class="section contact">
+    <div class="container">
+        <h1>Contact Me At</h1>
+        <p>hebarton12@gmail.com</p>
+    </div>
+</section>
+
+
+</main>
+<footer class="section" style="padding:28px 0; border-top: 1px solid rgba(230,232,238,.12); color:#a2aabc; text-align: center; ">
+    <span id="year"></span> Daniel Barton
+</footer>
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Theme toggle (light/dark) with persistence
+    (function(){
+        const root = document.documentElement;
+        const toggle = document.getElementById('theme-toggle');
+        const navToggle = document.getElementById('nav-toggle');
+        const navList = document.getElementById('primary-nav');
+        const stored = localStorage.getItem('theme');
+        if (stored === 'light' || stored === 'dark') {
+            root.setAttribute('data-theme', stored);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            root.setAttribute('data-theme', 'light');
+        }
+        function setTheme(next){
+            root.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        }
+        toggle?.addEventListener('click', function(){
+            const current = root.getAttribute('data-theme');
+            setTheme(current === 'light' ? 'dark' : 'light');
+        });
+
+        // Mobile nav toggle
+        navToggle?.addEventListener('click', function(){
+            const isOpen = navList?.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+        // Close menu after clicking a link
+        navList?.addEventListener('click', function(e){
+            if (e.target && e.target.matches('a')) {
+                navList.classList.remove('open');
+                navToggle?.setAttribute('aria-expanded', 'false');
+            }
+        });
+    })();
+</script>
+</body>
+
+
+
+</html>
